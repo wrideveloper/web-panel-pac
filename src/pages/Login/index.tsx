@@ -75,10 +75,7 @@ export default class Login extends Component<RouteComponentProps, IState> {
               <Card>
                 <Card.Content>
                   <Card.Header textAlign="center">
-                    <Header
-                      content="PAC Web Panel"
-                      icon="user circle outline"
-                    />
+                    <Header content="Admin PAC" icon="user circle outline" />
                   </Card.Header>
                 </Card.Content>
                 <Card.Content>
