@@ -1,3 +1,3 @@
 export default {
-  servicePAC: "https://sistempac.herokuapp.com/",
+  servicePAC: "http://167.71.204.43:5000/",
 }

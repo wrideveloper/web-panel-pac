@@ -6,7 +6,7 @@ class NavigationHeader extends Component {
     return (
       <Menu.Item>
         <Header inverted>
-          <Header.Content>PAC Web Panel</Header.Content>
+          <Header.Content>Admin PAC</Header.Content>
         </Header>
       </Menu.Item>
     )

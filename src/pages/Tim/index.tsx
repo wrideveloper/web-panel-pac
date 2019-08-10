@@ -7,7 +7,8 @@ import {
   Validation,
 } from "crudone"
 import React, { Component, Fragment } from "react"
-import { Header } from "semantic-ui-react"
+import { Link } from "react-router-dom"
+import { Button, Header } from "semantic-ui-react"
 import ErrorMessage from "../../components/ErrorMessage"
 import { StatusService } from "../../services/StatusService"
 import { TimService } from "../../services/TimService"
@@ -66,6 +67,14 @@ export default class Tim extends Component<{}, IState> {
       .catch((error) => this.setState({ error, loading: false }))
   }
 
+  public renderAdditionalAction = (tim: ITim, isUpdateMode: boolean) => {
+    return isUpdateMode ? (
+      <Link to={{ pathname: "/tim/anggota", state: tim }}>
+        <Button content="Anggota" color="orange" />
+      </Link>
+    ) : null
+  }
+
   public render() {
     const schema: ISchema = {
       nama: {
@@ -107,7 +116,11 @@ export default class Tim extends Component<{}, IState> {
             <Table.Limiter text="Item Per Halaman" />
             <Table.Display emptyText="Data Kosong" />
           </Table.Container>
-          <Form updateTitle="Ubah Tim" onUpdate={this.updateTim} />
+          <Form
+            updateTitle="Ubah Tim"
+            onUpdate={this.updateTim}
+            additionalAction={this.renderAdditionalAction}
+          />
         </Container>
       </Fragment>
     )

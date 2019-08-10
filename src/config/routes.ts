@@ -1,4 +1,5 @@
 import Admin from "../pages/Admin"
+import Anggota from "../pages/Anggota"
 import Hadiah from "../pages/Hadiah"
 import JenisPengumpulan from "../pages/JenisPengumpulan"
 import Kontak from "../pages/Kontak"
@@ -27,6 +28,14 @@ const routes: IRoute[] = [
     icon: "group",
     path: "/tim",
     private: true,
+  },
+  {
+    name: "anggota",
+    component: Anggota,
+    label: "Anggota",
+    path: "/tim/anggota",
+    private: true,
+    hide: true,
   },
   {
     name: "status",
