@@ -91,6 +91,12 @@ export default class Tim extends Component<{}, IState> {
           valueKey: "_id",
         },
       },
+      telp: {
+        label: "Telpon",
+      },
+      email: {
+        label: "Email",
+      },
       status: {
         label: "Status",
         type: "option",
