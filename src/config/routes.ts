@@ -5,6 +5,7 @@ import JenisPengumpulan from "../pages/JenisPengumpulan"
 import Kontak from "../pages/Kontak"
 import Login from "../pages/Login"
 import MediaPartner from "../pages/MediaPartner"
+import Pengumpulan from "../pages/Pengumpulan"
 import Status from "../pages/Status"
 import SupportedBy from "../pages/SupportedBy"
 import Tim from "../pages/Tim"
@@ -34,6 +35,14 @@ const routes: IRoute[] = [
     component: Anggota,
     label: "Anggota",
     path: "/tim/anggota",
+    private: true,
+    hide: true,
+  },
+  {
+    name: "pengumpulan",
+    component: Pengumpulan,
+    label: "Pengumpulan",
+    path: "/tim/pengumpulan",
     private: true,
     hide: true,
   },

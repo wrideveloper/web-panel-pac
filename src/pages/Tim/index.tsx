@@ -1,13 +1,6 @@
-import {
-  Container,
-  CreateButton,
-  Form,
-  ISchema,
-  Table,
-  Validation,
-} from "crudone"
+import { Container, Form, ISchema, Table, Validation } from "crudone"
 import React, { Component, Fragment } from "react"
-import { Link } from "react-router-dom"
+import { RouteComponentProps } from "react-router-dom"
 import { Button, Header } from "semantic-ui-react"
 import ErrorMessage from "../../components/ErrorMessage"
 import { StatusService } from "../../services/StatusService"
@@ -22,7 +15,7 @@ interface IState {
   error?: Error
 }
 
-export default class Tim extends Component<{}, IState> {
+export default class Tim extends Component<RouteComponentProps, IState> {
   public state: IState = {
     tim: [],
     universitas: [],
@@ -69,14 +62,38 @@ export default class Tim extends Component<{}, IState> {
 
   public renderAdditionalAction = (tim: ITim, isUpdateMode: boolean) => {
     return isUpdateMode ? (
-      <Link to={{ pathname: "/tim/anggota", state: tim }}>
-        <Button content="Anggota" color="orange" />
-      </Link>
+      <>
+        <Button
+          content="Anggota"
+          color="orange"
+          onClick={() =>
+            this.props.history.push(
+              `${process.env.PUBLIC_URL}/tim/anggota`,
+              tim,
+            )
+          }
+        />
+
+        <Button
+          content="Pengumpulan"
+          color="blue"
+          onClick={() =>
+            this.props.history.push(
+              `${process.env.PUBLIC_URL}/tim/pengumpulan`,
+              tim,
+            )
+          }
+        />
+      </>
     ) : null
   }
 
   public render() {
     const schema: ISchema = {
+      _id: {
+        label: "ID",
+        hideOnForm: true,
+      },
       nama: {
         label: "Nama",
         validations: [Validation.required],

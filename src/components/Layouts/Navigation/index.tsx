@@ -30,7 +30,7 @@ class Navigation extends Component<RouteComponentProps, IState> {
           <Menu.Item
             key={route.label}
             as={Link}
-            to={route.path}
+            to={process.env.PUBLIC_URL + route.path}
             active={this.isActive(route)}
             onClick={() => this.changeActiveItem(route.label!)}
           >
